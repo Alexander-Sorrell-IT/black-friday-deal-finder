@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DealHawk — Black Friday deals, checked by hand</title>
+    <meta
+      name="description"
+      content="DealHawk lists real Black Friday and Cyber Monday deals, each with its store, price, usual price and the moment its price was checked."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap top-row">
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path d="M3 6l11 3 6-5 3 8 6 2-5 4 2 6-7-2-4 6-3-6-8 1z" fill="currentColor" />
+          </svg>
+          <div>
+            <h1>DealHawk</h1>
+            <p class="tagline">Black Friday & Cyber Monday deals, checked by hand</p>
+          </div>
+        </div>
+        <label class="search">
+          <span class="sr-only">Search deals</span>
+          <input
+            id="q"
+            type="search"
+            placeholder="Search deals, stores, products…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </label>
+      </div>
+    </header>
+
+    <nav class="filters wrap" aria-label="Filters">
+      <fieldset class="group">
+        <legend>Category</legend>
+        <div id="cat-chips" class="chips"></div>
+      </fieldset>
+      <fieldset class="group">
+        <legend>Store</legend>
+        <div id="store-chips" class="chips"></div>
+      </fieldset>
+      <fieldset class="group">
+        <legend>Discount</legend>
+        <div id="off-chips" class="chips"></div>
+      </fieldset>
+      <div class="group sortbox">
+        <label for="sort">Sort</label>
+        <select id="sort">
+          <option value="discount">Biggest discount</option>
+          <option value="price-low">Price: low to high</option>
+          <option value="price-high">Price: high to low</option>
+          <option value="checked">Just checked</option>
+        </select>
+      </div>
+    </nav>
+
+    <main class="wrap">
+      <p class="count" id="count"></p>
+      <section id="grid" class="grid" aria-live="polite"></section>
+      <p id="empty" class="empty" hidden>No deal matches those filters. Clear one and try again.</p>
+    </main>
+
+    <section id="detail" class="detail" hidden aria-live="polite"></section>
+
+    <footer class="wrap foot">
+      <p>
+        Every deal above was read from its source on <strong id="checked-window"></strong> — the store's own
+        page or a deals source that names the store. The time each price was checked sits on the deal.
+      </p>
+      <p class="srcs">
+        Sources this pass: Slickdeals, Best Buy, Amazon, B&H, Kohl's, Walmart, QVC, Lenovo, CNET, PCMag.
+      </p>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
